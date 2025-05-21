@@ -1,0 +1,26 @@
+{
+  "name": "zk-threshold-proof",
+  "version": "0.1.0",
+  "description": "A Zero-Knowledge SDK to prove that a private input is greater than or equal to a threshold — without revealing the actual value.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node examples/runProof.js"
+  },
+  "keywords": [
+    "zkp",
+    "zero-knowledge",
+    "zk",
+    "circom",
+    "snarkjs",
+    "groth16",
+    "commitment",
+    "proof",
+    "threshold"
+  ],
+  "author": {
+    "name": "Felipe Segall Corrêa",
+    "url": "https://www.linkedin.com/in/fsegall/"
+  },
+  "license": "MIT"
+}
