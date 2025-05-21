@@ -1,0 +1,3 @@
+# How ZK Works
+
+zk-threshold-proof uses Zero-Knowledge Proofs to validate that...
