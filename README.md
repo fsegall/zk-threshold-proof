@@ -1,6 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/zk-threshold-proof.svg)](https://www.npmjs.com/package/zk-threshold-proof)
 
-# zk-threshold-proof
+# [zk-threshold-proof](https://www.npmjs.com/package/zk-threshold-proof)
 
 🔐 A Zero-Knowledge SDK to prove that a private input is greater than or equal to a threshold — without revealing the actual value.
 
