@@ -6,6 +6,8 @@
 
 Built with Circom + snarkjs.
 
+[Github Repository](https://github.com/fsegall/zk-threshold-proof)
+
 ---
 
 ## 📦 Use cases
