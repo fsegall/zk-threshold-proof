@@ -1,6 +1,6 @@
 {
   "name": "zk-threshold-proof",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Zero-Knowledge SDK to prove that a private input is greater than or equal to a threshold — without revealing the actual value.",
   "main": "src/index.js",
   "type": "module",
