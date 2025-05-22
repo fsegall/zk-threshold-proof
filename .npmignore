@@ -1,0 +1,17 @@
+# Ignore website
+website/
+.github/
+.gitignore
+.DS_Store
+
+# Node build artifacts
+node_modules/
+npm-debug.log
+
+# Test files (se não quiser incluir)
+test/
+__tests__/
+
+# Others (se aplicável)
+.vscode/
+*.log
