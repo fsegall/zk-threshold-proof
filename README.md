@@ -1,66 +1,73 @@
 [![npm version](https://img.shields.io/npm/v/zk-threshold-proof.svg)](https://www.npmjs.com/package/zk-threshold-proof)
 
-# [zk-threshold-proof](https://www.npmjs.com/package/zk-threshold-proof)
+# zk-threshold-proof
 
-🔐 A Zero-Knowledge SDK to prove that a private input is greater than or equal to a threshold — without revealing the actual value.
+A lightweight SDK to generate and verify zero-knowledge proofs that assert a private value is greater than or equal to a threshold without revealing the actual value.
 
-Built with Circom + snarkjs.
+## 🚀 Features
+- Generate proofs locally
+- Verify proofs locally
+- Create commitment hashes
+- Register circuits on ZKVerify
+- Deploy circuits to ZKVerify testnet
+- Verify proofs online via ZKVerify API
 
-[Github Repository](https://github.com/fsegall/zk-threshold-proof)
-
----
-
-## 📦 Use cases
-
-- ✅ Prove that someone is over 18 (without revealing age)
-- ✅ Prove that a score is above a certain level (e.g., credit, reputation, etc.)
-- ✅ Prove that your salary is above a threshold (e.g., job requirements)
-- ✅ Prove you hold ≥ X tokens, reputation, experience, or time
-
----
-
-## 🛠️ Features
-
-- Groth16 zk-SNARKs
-- Circom-based circuit: `privateInput >= threshold`
-- Commitment hash generator (optional)
-- Works locally or integrated with ZK verification services
-
----
-
-## 📁 Directory structure
-
-```
-src/
-├── generateProof.js      → Generates a zk proof (Groth16)
-├── verifyProof.js        → Verifies the proof locally
-├── hash.js               → Optional hash of publicSignals (commitment)
-└── index.js              → Unified API
+## 📦 Install
+```bash
+npm install zk-threshold-proof
 ```
 
----
+## 🔧 Basic Usage
 
-## 🚀 Example usage
-
-```js
-const { generateProof, verifyProof, getCommitmentHash } = require("zk-threshold-proof");
+### Generate and verify proof locally
+```javascript
+const { generateProof, verifyProof, getCommitmentHash } = require('zk-threshold-proof');
 
 (async () => {
-  const input = { score: 720, threshold: 650 };
-
-  const { proof, publicSignals } = await generateProof(input);
-  const commitment = getCommitmentHash(publicSignals);
+  const { proof, publicSignals } = await generateProof({ score: 720, threshold: 650 });
   const isValid = await verifyProof(proof, publicSignals);
+  console.log('Proof valid?', isValid);
 
-  console.log("zkCommitment:", commitment);
-  console.log("Is valid:", isValid);
+  const commitment = getCommitmentHash(publicSignals);
+  console.log('Commitment hash:', commitment);
 })();
 ```
 
-> See `examples/runProof.js` for a complete runnable script.
+## 🌐 ZKVerify Network Integration
 
----
+### Register, deploy, and verify proofs online
+```javascript
+const {
+  registerCircuit,
+  deployCircuit,
+  verifyProofOnline
+} = require('zk-threshold-proof');
 
-## 📄 License
+(async () => {
+  const apiKey = process.env.ZKVERIFY_API_KEY;
 
-MIT
+  const circuit = await registerCircuit({
+    apiKey,
+    name: "credit-score-check",
+    description: "Check if score >= threshold",
+    verificationKeyPath: "./build/verification_key.json"
+  });
+
+  await deployCircuit({ apiKey, circuitId: circuit.id });
+
+  const result = await verifyProofOnline({
+    apiKey,
+    circuitId: circuit.id,
+    proof: {},           // Your generated proof
+    publicSignals: []    // Your public signals
+  });
+
+  console.log('Proof verified online:', result);
+})();
+```
+
+## 🛡️ License
+MIT License
+
+## 📧 Contact
+**Livre Soluções de Software** — contato@livresoltech.com

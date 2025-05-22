@@ -1,10 +1,10 @@
-const snarkjs = require("snarkjs");
-const fs = require("fs");
-const path = require("path");
+
+const snarkjs = require('snarkjs');
+const fs = require('fs');
 
 async function verifyProof(proof, publicSignals) {
-  const vkey = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "build", "verification_key.json")));
-  return snarkjs.groth16.verify(vkey, publicSignals, proof);
+  const vKey = JSON.parse(fs.readFileSync('./build/verification_key.json'));
+  return await snarkjs.groth16.verify(vKey, publicSignals, proof);
 }
 
 module.exports = { verifyProof };

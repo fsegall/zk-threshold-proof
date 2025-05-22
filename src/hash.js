@@ -1,8 +1,11 @@
-const crypto = require("crypto");
+
+const crypto = require('crypto');
 
 function getCommitmentHash(publicSignals) {
-  const raw = publicSignals.join("|");
-  return "0x" + crypto.createHash("sha256").update(raw).digest("hex");
+  const hash = crypto.createHash('sha256');
+  const data = publicSignals.join(',');
+  hash.update(data);
+  return '0x' + hash.digest('hex');
 }
 
 module.exports = { getCommitmentHash };
