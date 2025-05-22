@@ -1,26 +1,35 @@
 {
   "name": "zk-threshold-proof",
   "version": "0.1.1",
-  "description": "A Zero-Knowledge SDK to prove that a private input is greater than or equal to a threshold — without revealing the actual value.",
+  "description": "A lightweight SDK to generate and verify ZK proofs that assert a private value is greater than or equal to a threshold.",
   "main": "src/index.js",
-  "type": "module",
+  "types": "src/index.d.ts",
   "scripts": {
-    "test": "node examples/runProof.js"
+    "test": "echo \"No test specified\" && exit 0",
+    "build": "echo \"Build step (optional)\"",
+    "dev": "node examples/runProof.js",
+    "docs": "cd website && npm run build && npm run serve"
   },
   "keywords": [
-    "zkp",
     "zero-knowledge",
-    "zk",
-    "circom",
-    "snarkjs",
-    "groth16",
-    "commitment",
-    "proof",
-    "threshold"
+    "zkp",
+    "zk-proof",
+    "zk-threshold",
+    "privacy",
+    "blockchain",
+    "cryptography"
   ],
-  "author": {
-    "name": "Felipe Segall Corrêa",
-    "url": "https://www.linkedin.com/in/fsegall/"
+  "author": "Felipe Segall <contato@livresoltech.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fsegall/zk-threshold-proof.git"
   },
-  "license": "MIT"
+  "dependencies": {
+    "snarkjs": "^0.6.11",
+    "circom_tester": "^0.1.8"
+  },
+  "devDependencies": {
+    "docusaurus": "^3.2.1"
+  }
 }
